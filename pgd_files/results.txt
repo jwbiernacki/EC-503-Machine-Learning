@@ -1,0 +1,14 @@
+
+----------
+Starting with Linear kernel
+
+----------
+Starting with Linear kernel
+
+----------
+Starting with Linear kernel
+Time to train/validate with linear kernel and THREE C parameters: 547.8101Best C by cross-validation with linear kernel: 1.000000e-04
+Time to test with LINEAR kernel: 557.4802Testing Error with LINEAR kernel: 0.430
+Starting with Polynomial (quadratic) kernel
+Time to train/validate with POLYNOMIAL kernel and THREE C parameters: 537.1099Best C by cross-validation with POLYNOMIAL (quad) kernel: 1.000000e-04
+Time to test with POLYNOMIAL (quad) kernel: 684.5993Testing Error with POLYNOMIAL (quad) kernel: 0.399
