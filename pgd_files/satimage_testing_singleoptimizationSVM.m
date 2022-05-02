@@ -24,7 +24,9 @@ fid = fopen("results.txt",'a');
 folds = 1;
 classes = unique(ytr);
 
-C = 10.^(-6:-4);
+vals = -8:-3;
+
+C = 10.^(vals);
 
 %% Validation with Linear Kernel
 fprintf(fid, "\n----------\nStarting with Linear kernel\n");
@@ -35,11 +37,11 @@ for i = 1:numel(C)
     % "1" argument ==> linear kernel
     errors(i) = k_fold_cross_validation_SVM(Xtr, ytr, folds, 1, numel(classes), C(i), 0);
 end
-fprintf(fid, "Time to train/validate with linear kernel and THREE C parameters: %.4f", toc);
+fprintf(fid, "Time to train/validate with linear kernel and THREE C parameters: %.4f\n", toc);
 
 
 figure(1)
-plot(-6:-4, 100*(1-errors), '*k')
+plot(vals, 100*(1-errors), '*k')
 xlabel("C")
 ylabel("Accuracy")
 axis padded
@@ -52,8 +54,8 @@ tic
 Ktrain=compute_kernel_matrix(Xtr,Xtr,1,0);
 Ktest=compute_kernel_matrix(Xte,Xtr,1,0);
 [test_err, alpha] = train_test_CS_IV_svm_kernel(Ktrain, Ktest, ytr, yte, numel(classes), C(idx));
-fprintf(fid, "Time to test with LINEAR kernel: %.4f", toc);
-fprintf(fid, "Testing Error with LINEAR kernel: %.3f", test_err);
+fprintf(fid, "Time to test with LINEAR kernel: %.4f\n", toc);
+fprintf(fid, "Testing Error with LINEAR kernel: %.3f\n", test_err);
 
 %% Validation with Polynomial Kernel (Quadratic)
 fprintf(fid, "\nStarting with Polynomial (quadratic) kernel\n");
@@ -64,10 +66,10 @@ for i = 1:numel(C)
     % "2" argument ==> polynomial kernel
     errors(i) = k_fold_cross_validation_SVM(Xtr, ytr, folds, 2, numel(classes), C(i), 2);
 end
-fprintf(fid, "Time to train/validate with POLYNOMIAL kernel and THREE C parameters: %0.4f", toc);
+fprintf(fid, "Time to train/validate with POLYNOMIAL kernel and THREE C parameters: %0.4f\n", toc);
 
 figure(2)
-plot(-6:-4, 100*(1-errors), '*k')
+plot(vals, 100*(1-errors), '*k')
 xlabel("Exponent of C")
 ylabel("Accuracy")
 axis padded
@@ -80,8 +82,8 @@ tic
 Ktrain=compute_kernel_matrix(Xtr,Xtr,2,2);
 Ktest=compute_kernel_matrix(Xte,Xtr,2,2);
 [test_err, alpha] = train_test_CS_IV_svm_kernel(Ktrain, Ktest, ytr, yte, numel(classes), C(idx));
-fprintf(fid, "Time to test with POLYNOMIAL (quad) kernel: %.4f", toc);
-fprintf(fid, "Testing Error with POLYNOMIAL (quad) kernel: %.3f", test_err);
+fprintf(fid, "Time to test with POLYNOMIAL (quad) kernel: %.4f\n", toc);
+fprintf(fid, "Testing Error with POLYNOMIAL (quad) kernel: %.3f\n", test_err);
 
 %% Validation with RBF Kernel (aka Gaussian)
 

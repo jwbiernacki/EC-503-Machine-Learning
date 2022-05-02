@@ -12,3 +12,41 @@ Time to test with LINEAR kernel: 557.4802Testing Error with LINEAR kernel: 0.430
 Starting with Polynomial (quadratic) kernel
 Time to train/validate with POLYNOMIAL kernel and THREE C parameters: 537.1099Best C by cross-validation with POLYNOMIAL (quad) kernel: 1.000000e-04
 Time to test with POLYNOMIAL (quad) kernel: 684.5993Testing Error with POLYNOMIAL (quad) kernel: 0.399
+----------
+Date: 2 May 2022
+Testing Linear kernel - Dataset = satimage
+Time to train/validate with linear kernel and THREE C parameters: 535.8180
+Best C by cross-validation with linear kernel: 1.000000e-04
+Time to test with LINEAR kernel: 548.7199
+Testing Error with LINEAR kernel: 0.430
+
+----------
+Date: 2 May 2022
+Testing Linear kernel - Dataset = iris
+
+----------
+Date: 2 May 2022
+Testing Linear kernel - Dataset = wine
+
+----------
+Date: 2 May 2022
+Testing Linear kernel - Dataset = letter
+
+----------
+Date: 2 May 2022
+Testing Linear kernel - Dataset = letter
+* NOTE * - Only 1/3 of the data was used due to complexity of this algorithm.
+
+----------
+Date: 2 May 2022
+Testing Linear kernel - Dataset = letter
+* NOTE * - Only 1/3 of the data was used due to complexity of this algorithm.
+
+----------
+Date: 2 May 2022
+Testing Linear kernel - Dataset = letter
+* NOTE * - Only 1/3 of the data was used due to complexity of this algorithm.
+Time to train/validate with linear kernel and THREE C parameters: 4637.3310
+Best C by cross-validation with linear kernel: 1.000000e-05
+Time to test with LINEAR kernel: 154.8214
+Testing Error with LINEAR kernel: 0.845
