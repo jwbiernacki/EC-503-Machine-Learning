@@ -3,7 +3,7 @@
 % EC 503 - HW5
 % Problem 5.1 - Part (c)
 
-function [w] = train_svm_mhinge_sgd(Xtr, ytr, Delta, T, lambda)
+function [w] = train_svm_mhinge_sgdPARKER(Xtr, ytr, Delta, T, lambda)
 %% Description of Function
 % Xtr -> input matrix
 % ytr -> vector of labels

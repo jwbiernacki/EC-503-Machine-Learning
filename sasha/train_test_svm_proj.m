@@ -1,24 +1,20 @@
 clear
-load satimage_data.mat
+load shuttle.mat
 
 [m,d]=size(Xtr);
 
-med = median(Xtr,'omitnan');
-Xtr = fillmissing(Xtr,'constant',med);
-med = median(Xte,'omitnan');
-Xte = fillmissing(Xte,'constant',med);
-
-
-%split up the data
-rand_num = randperm(4420);
-Xtrain = Xtr(rand_num(1:3094),:)'; 
-ytrain = ytr(rand_num(1:3094))';
-Xval = Xtr(rand_num(3095:end),:)';
-yval = ytr(rand_num(3095:end))';
+% split up the data
+shufnum = floor(.7*m);
+rand_num = randperm(m);
+Xtrain = Xtr(rand_num(1:shufnum),:)'; 
+ytrain = ytr(rand_num(1:shufnum))';
+Xval = Xtr(rand_num(shufnum+1:end),:)';
+yval = ytr(rand_num(shufnum+1:end))';
 Xte = Xte';
 yte = yte';
 
-Delta = ones(6)-eye(6);
+numclass = max(ytr);
+Delta = ones(numclass)-eye(numclass);
 T = 1e6;
 lambdas=10.^(-15:10);
 accuracy=zeros(1,numel(lambdas));
@@ -34,7 +30,7 @@ for i=1:numel(lambdas)
     accuracy(i) = mean(ypred == yval);
 end
 [~,idx]=max(accuracy);
-W = train_svm_mhinge_sgdPARKER(Xtrain,ytrain,Delta,T,lambdas(14));
+W = train_svm_mhinge_sgdPARKER(Xtrain,ytrain,Delta,T,lambdas(idx));
 fprintf("Training and validation time is ")
 toc
 tic
@@ -46,3 +42,8 @@ end
 accuracy_te = mean(ypred_te == yte);
 fprintf("Testing time is ")
 toc
+
+mat=zeros(numclass,numclass);
+for i=1:numel(yte)
+    mat(yte(i),ypred_te(i))=mat(yte(i),ypred_te(i))+1;
+end
