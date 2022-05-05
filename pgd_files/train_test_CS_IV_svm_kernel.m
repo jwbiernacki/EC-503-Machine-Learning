@@ -21,7 +21,12 @@ for i = 0:(sz-1)
                         % among the "k" values the class that matches the true
                         % class of the sample will be 0
     c = Ytrain(i+1);
+    %fprintf("From train_test..., here is c = %d\n", c);
     e(i * nClasses + c) = 0;
+end
+
+if (length(e) > sz_by_k)
+    e = e(1:sz_by_k);
 end
 
 %% creating H

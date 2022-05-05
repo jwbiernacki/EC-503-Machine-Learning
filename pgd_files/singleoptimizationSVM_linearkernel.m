@@ -13,30 +13,28 @@ close all
 fid = fopen("results.txt",'a');
 
 %load satimage_data.mat
-%load iris_data.mat   -- skipped for now
-%load wine_data.mat   -- skipped for now
-load letter_data.mat
+%load letter_data.mat
+load shuttle_data.mat
 
 %dataset = "satimage";
-%dataset = "iris";    -- skipped for now
-%dataset = "wine";    -- skipped for now
-dataset = "letter";
+%dataset = "letter";
+dataset = "shuttle";
 
 
 
-date = "2 May 2022";
+date = "3 May 2022";
 fprintf(fid, "\n----------\nDate: %s\nTesting Linear kernel - Dataset = %s\n", date, dataset);
 
-fprintf(fid, "* NOTE * - Only 1/3 of the data was used due to complexity of this algorithm.\n");
+fprintf(fid, "* NOTE * - Only 1/10th of the data was used due to complexity of this algorithm.\n");
 
 [m, d]=size(Xtr);
 [m2, d2]=size(Xte);
 
 % IF ONLY SOME OF THE DATASET IS NEEDED
-Xtr = Xtr(mod(1:m,6) == 0, :);
-Xte = Xte(mod(1:m2,6) == 0, :);
-ytr = ytr(mod(1:m,6) == 0);
-yte = yte(mod(1:m2,6) == 0);
+Xtr = Xtr(mod(1:m, 10) == 0, :);
+Xte = Xte(mod(1:m2, 10) == 0, :);
+ytr = ytr(mod(1:m, 10) == 0);
+yte = yte(mod(1:m2, 10) == 0);
 
 med = median(Xtr,'omitnan');
 Xtr = fillmissing(Xtr,'constant',med);

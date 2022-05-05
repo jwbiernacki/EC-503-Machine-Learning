@@ -1,0 +1,36 @@
+----------
+Date: 3 May 2022
+Testing Linear kernel - Dataset = iris
+Time to train/validate with linear kernel and THREE C parameters: 0.6499
+Best C by cross-validation with linear kernel: 1.000000e-09
+Cross validation error for this small dataset: 73%
+----------
+Date: 3 May 2022
+Testing Linear kernel - Dataset = iris
+Time to train/validate with linear kernel and NINE C parameters: 1.3472
+Best C by cross-validation with linear kernel: 1.000000e-04
+Cross validation error for this small dataset: 73.56%
+----------
+Date: 3 May 2022
+Testing Linear kernel - Dataset = wine
+Time to train/validate with linear kernel and NINE C parameters: 2.4261
+Best C by cross-validation with linear kernel: 1.000000e-10
+Cross validation error for this small dataset: 90.35%
+
+----------
+Date: 3 May 2022
+Testing Linear kernel - Dataset = glass
+Time to train/validate with linear kernel and NINE C parameters: 10.3400
+Best C by cross-validation with linear kernel: 1.000000e-10
+Cross validation error for this small dataset: 32.86%
+----------
+Date: 3 May 2022
+Testing Linear kernel - Dataset = vehicle
+Time to train/validate with linear kernel and NINE C parameters: 158.7870
+Best C by cross-validation with linear kernel: 1.000000e-05
+Cross validation error for this small dataset: 34.02%
+
+
+----------
+Date: 3 May 2022
+Testing Linear kernel - Dataset = segment

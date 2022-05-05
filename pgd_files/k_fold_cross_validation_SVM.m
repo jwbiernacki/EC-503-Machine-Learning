@@ -47,6 +47,7 @@ for k = 1:folds
 end
 
 % Estimating error current parameters
-err = mean(errors);
+% err = mean(errors);
+err = mean(errors, 'omitnan');
 
 end

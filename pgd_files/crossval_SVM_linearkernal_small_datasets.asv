@@ -1,0 +1,26 @@
+%% Header
+% Parker Dunn
+% Ec 503 Project
+% 28 April 2022
+
+% 10-fold Cross Validation for small datasets
+
+%% Setup/preparation
+
+clear
+close all
+
+fid = fopen("results_small_data.txt",'a');
+
+load iris_data.mat
+%load wine_data.mat
+
+dataset = "iris";
+%dataset = "wine";
+
+date = "3 May 2022";
+fprintf(fid, "\n----------\nDate: %s\nTesting Linear kernel - Dataset = %s\n", date, dataset);
+
+[m, d]=size(Xtr);
+[m2, d2]=size(Xte);
+
